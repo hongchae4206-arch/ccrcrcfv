@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoHistory - 역사로 배우는 환경</title>
+
+  <style>
+    /* ===== 기본 스타일 ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #f4f7f6;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(135deg, #184e77, #34a0a4);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    header h1 { font-size: 2.5em; margin-bottom: 10px; }
+    header p { font-size: 1.1em; opacity: 0.9; }
+
+    nav {
+      background: #1e6f5c;
+      text-align: center;
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    nav a:hover { color: #ffe082; }
+
+    section {
+      max-width: 900px;
+      margin: 50px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      color: #1e6f5c;
+      border-left: 5px solid #52b788;
+      padding-left: 10px;
+      margin-bottom: 20px;
+    }
+
+    .learn-card {
+      background: #e8f5e9;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .learn-card h3 { color: #1b4332; margin-bottom: 10px; }
+    .learn-card p { color: #333; }
+
+    #missionInput {
+      width: 70%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1em;
+    }
+
+    #missionForm button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      background: #1e6f5c;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      margin-left: 10px;
+      transition: 0.3s;
+    }
+
+    #missionForm button:hover { background: #184e77; }
+
+    #missions p { margin: 8px 0; }
+    .point-box {
+      background: #eaf8f3;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    #rankList {
+      margin-top: 20px;
+      background: #f1f9f1;
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      background: #184e77;
+      color: white;
+      padding: 30px 0;
+      margin-top: 80px;
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 700px) {
+      header h1 { font-size: 2em; }
+      nav a { margin: 0 10px; display: inline-block; }
+      #missionInput { width: 100%; margin-bottom: 10px; }
+      #missionForm button { width: 100%; margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== 헤더 ===== -->
+  <header>
+    <h1>🌍 EcoHistory</h1>
+    <p>역사를 통해 배우는 지속 가능한 미래</p>
+  </header>
+
+  <!-- ===== 내비게이션 ===== -->
+  <nav>
+    <a href="#learn">학습하기</a>
+    <a href="#mission">실천하기</a>
+    <a href="#ranking">랭킹</a>
+  </nav>
+
+  <!-- ===== 학습 섹션 ===== -->
+  <section id="learn">
+    <h2>📖 오늘의 역사 교훈</h2>
+
+    <div class="learn-card">
+      <h3>마야 문명의 붕괴 (기원후 9세기)</h3>
+      <p>
+        마야 문명은 급격한 인구 증가와 삼림 남벌로 인한 토양 황폐화를 겪었습니다.
+        물 부족과 식량 위기로 사회가 붕괴했죠.  
+        <strong>→ 교훈:</strong> 자연의 경고를 무시하면 문명도 사라집니다.
+      </p>
+    </div>
+
+    <div class="learn-card">
+      <h3>조선 후기의 소빙기 (17세기)</h3>
+      <p>
+        갑작스러운 기후 하락으로 흉년이 이어졌습니다.  
+        이에 조선은 <b>산림 보호령</b>을 내려 환경 회복에 나섰습니다.  
+        <strong>→ 교훈:</strong> 위기 속에서도 제도적 대응이 중요합니다.
+      </p>
+    </div>
+
+    <div class="learn-card">
+      <h3>현대의 기후 위기</h3>
+      <p>
+        화석연료 중심의 산업화로 지구 온난화가 심화되었습니다.  
+        우리의 작은 실천이 미래의 역사를 바꿉니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== 실천 섹션 ===== -->
+  <section id="mission">
+    <h2>🌱 나의 실천 등록</h2>
+    <p>나만의 친환경 실천을 기록하고 포인트를 모아보세요!</p>
+
+    <form id="missionForm">
+      <input type="text" id="missionInput" placeholder="예: 텀블러 사용하기" required>
+      <button type="submit">등록</button>
+    </form>
+
+    <div id="missions"></div>
+
+    <div class="point-box">
+      <p>💚 현재 나의 포인트: <span id="points">0</span>점</p>
+    </div>
+  </section>
+
+  <!-- ===== 랭킹 섹션 ===== -->
+  <section id="ranking">
+    <h2>🏆 실천 랭킹</h2>
+    <p>환경 실천 미션을 등록할수록 점수가 오릅니다!</p>
+    <div id="rankList"></div>
+  </section>
+
+  <!-- ===== 푸터 ===== -->
+  <footer>
+    <p>© 2025 EcoHistory | 역사로 배우는 지속 가능한 사회</p>
+  </footer>
+
+  <!-- ===== JavaScript ===== -->
+  <script>
+    // 초기 데이터 로드
+    let missions = JSON.parse(localStorage.getItem('missions')) || [];
+    let points = JSON.parse(localStorage.getItem('points')) || 0;
+
+    const missionForm = document.getElementById('missionForm');
+    const missionInput = document.getElementById('missionInput');
+    const missionsDiv = document.getElementById('missions');
+    const pointsDisplay = document.getElementById('points');
+    const rankList = document.getElementById('rankList');
+
+    function renderMissions() {
+      missionsDiv.innerHTML = missions.length
+        ? missions.map((m,i)=>`<p>✅ ${i+1}. ${m}</p>`).join('')
+        : "<p>아직 등록된 실천이 없습니다.</p>";
+
+      pointsDisplay.textContent = points;
+
+      rankList.innerHTML = `
+        <p>🥇 나의 등급: <b>${points >= 100 ? 'Eco Master' : points >= 50 ? 'Green Leader' : 'Starter'}</b></p>
+        <p>현재 포인트: ${points}점</p>
+      `;
+    }
+
+    missionForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const text = missionInput.value.trim();
+      if (!text) return;
+
+      missions.push(text);
+      points += 10;
+      localStorage.setItem('missions', JSON.stringify(missions));
+      localStorage.setItem('points', JSON.stringify(points));
+
+      missionInput.value = '';
+      renderMissions();
+    });
+
+    renderMissions();
+  </script>
+
+</body>
+</html>
